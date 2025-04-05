@@ -1,0 +1,790 @@
+/* Define the fonts */
+
+@font-face {
+    font-family: 'Archivo Black';
+    src: url('fonts/ArchivoBlack-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Garet';
+    src: url('fonts/Garet-Book.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Frisky Puppy';
+    src: url('fonts/FriskyPuppy.ttf') format('truetype');
+}
+
+
+/* Apply the fonts in the rest of the styles */
+
+html {
+    scroll-behavior: smooth;
+    /* Smooth scrolling for all page navigation */
+}
+
+body {
+    font-family: 'Archivo Black', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(to bottom right, #000000, #000080);
+    color: #ffffff;
+    cursor: default;
+    /* Default cursor for the page */
+    overflow-x: hidden;
+}
+
+.content {
+    padding: 50px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 80px;
+    font-family: 'Archivo Black', cursive;
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    /* Initial state: off-screen to the left */
+    position: relative;
+    left: -100%;
+    opacity: 0;
+    animation: slideInFromLeft 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+
+/* Animation to slide in from the left */
+
+@keyframes slideInFromLeft {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+.intro-heading {
+    color: #ffffff;
+    font-size: 50px;
+    font-family: 'Archivo Black', cursive;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 0;
+    /* Initial state: off-screen to the left */
+    position: relative;
+    left: -100%;
+    opacity: 0;
+    /* Apply the animation with delay */
+    animation: slideInFromLeft 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0.3s forwards;
+}
+
+
+/* Animation to slide in from the left */
+
+@keyframes slideInFromLeft {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+
+/* Logo container styles */
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.LOGO {
+    width: 120px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 20px;
+    filter: invert(1) grayscale(100%);
+    position: relative;
+    cursor: pointer;
+    /* Smooth animation to slide in from the top */
+    animation: slideDown 1.2s ease-out forwards;
+}
+
+
+/* Smooth Animation to slide in from the top */
+
+@keyframes slideDown {
+    0% {
+        top: -100px;
+        /* Start off-screen above */
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        /* End at its normal position */
+        opacity: 1;
+    }
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 'Archivo Black', cursive;
+    text-align: left;
+    margin: 0;
+    margin-top: 20px;
+    flex-grow: 1;
+    /* Initial state: Invisible */
+    opacity: 0;
+    /* Fade-in animation with a smooth transition */
+    animation: fadeIn 1.2s ease-out 0.8s forwards;
+    /* Matching the smoothness of .LOGO */
+}
+
+
+/* Fade-in effect for logo-text */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* Start invisible */
+    }
+    100% {
+        opacity: 1;
+        /* End fully visible */
+    }
+}
+
+.intro-text {
+    color: #ffffff;
+    font-family: 'Garet', cursive;
+    text-align: left;
+    margin-left: 50px;
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+
+/* Button styles with cursor changes */
+
+.button-container {
+    position: fixed;
+    top: 95px;
+    right: 200px;
+    display: flex;
+    gap: 10px;
+    transition: opacity 0.3s ease-out;
+    opacity: 0;
+    /* Start with the container hidden */
+    animation: fadeInContainer 0.6s ease-out 0.4s forwards;
+    /* Delay the container fade-in */
+}
+
+
+/* Fade-in animation for the container */
+
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Button slide-in animation */
+
+.btn-products,
+.btn-services,
+.btn-aboutus {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    font-family: 'Garet', sans-serif;
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateX(100px);
+    /* Start off-screen */
+    opacity: 0;
+    /* Start as invisible */
+    animation: slideIn 0.6s ease-out forwards;
+}
+
+
+/* Delay for each button to slide in one after another */
+
+.btn-products {
+    animation-delay: 1.2s;
+}
+
+.btn-services {
+    animation-delay: 1.6s;
+}
+
+.btn-aboutus {
+    animation-delay: 2s;
+}
+
+
+/* Slide-in effect for the buttons */
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* Hover effect */
+
+.btn-products:hover,
+.btn-services:hover,
+.btn-aboutus:hover {
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+
+/* Fade-out effect when scrolling */
+
+@keyframes fadeOutContainer {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Styling for the main testimonial heading */
+
+.testimonial-heading {
+    font-size: 100px;
+    font-family: 'Garet', sans-serif;
+    color: #ffffff;
+    /* White color for the heading */
+    text-align: center;
+    /* Center the heading */
+    margin-bottom: -80px;
+    /* Space below the heading */
+    text-transform: uppercase;
+    /* Uppercase for emphasis */
+    letter-spacing: 2px;
+    /* Slight letter spacing for a more refined look */
+    opacity: 0;
+    transform: translateY(50px);
+    /* Adjust as per your design */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+/* Styling for the testimonial subheading */
+
+.testimonial-subhead {
+    font-size: 40px;
+    font-family: 'Archivo Black', sans-serif;
+    color: white;
+    /* Light grey color for the subheading */
+    text-align: center;
+    /* Center the subheading */
+    margin-bottom: -20px;
+    /* Space below the subheading */
+    font-weight: 400;
+    /* Regular font weight */
+    opacity: 0;
+    transform: translateY(50px);
+    /* Adjust as per your design */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.testimonial-text {
+    font-size: 20px;
+    font-family: 'Garet', sans-serif;
+    color: white;
+    /* Light grey color for the subheading */
+    text-align: center;
+    /* Center the subheading */
+    margin-bottom: -40px;
+    /* Space below the subheading */
+    font-weight: 400;
+    /* Regular font weight */
+    opacity: 0;
+    transform: translateY(50px);
+    /* Adjust as per your design */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.testimonial-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 3px solid white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-family: 'Archivo Black', cursive;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    /* Adjust as per your design */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.testimonial-box {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    border: 3px solid white;
+    flex-direction: column;
+    /* Ensures content stacks vertically */
+    justify-content: space-between;
+    height: 300px;
+    /* Sets a fixed height to ensure consistent box size */
+    opacity: 0;
+    transform: translateY(50px);
+    /* Adjust as per your design */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.testimonial-box:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Soft white overlay */
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+.testimonial-profile {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid#136207;
+    margin-right: 250px;
+    /* Adds space to the right of the profile picture */
+    /* Moves the profile image to the left within the box */
+    opacity: 0;
+    transform: translateY(50px);
+    /* Adjust as per your design */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.testimonial-box p {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    /* Centers the testimonial text */
+    margin: 0;
+    flex-grow: 1;
+    margin-top: -100px;
+    /* Allows text to take remaining space */
+}
+
+.testimonial-box h4 {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    margin-top: -70px;
+    margin-left: -70px;
+    /* Adjust this value if needed */
+}
+
+.testimonial-box .testimonial-info {
+    font-family: 'Garet', cursive;
+    font-size: 10px;
+    color: #ddd;
+    text-align: center;
+    /* Centers the info */
+    margin-top: 10px;
+    margin-left: -50px;
+    opacity: 0;
+    transform: translateY(50px);
+    /* Adjust as per your design */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+/* Footer styles */
+
+.footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: left;
+    font-family: 'Garet', cursive;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-logo-img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    filter: invert(1) grayscale(100%);
+    margin-left: 20px;
+}
+
+.footer-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-section,
+.footer-links,
+.footer-social {
+    flex: 1 1 20%;
+    margin: 0 20px;
+}
+
+.footer-section h4,
+.footer-links h4,
+.footer-social h4 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-links ul,
+.footer-social p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 30px;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #f39c12;
+}
+
+.social-media-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    justify-content: flex-start;
+    /* Aligns the groups to the left */
+    margin-top: 15px;
+}
+
+.top-social-links,
+.bottom-social-links {
+    display: flex;
+    justify-content: flex-start;
+    /* Aligns the items in each group to the left */
+    gap: 20px;
+}
+
+.social-icon img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1);
+    /* Soft glow effect */
+}
+
+.carousel {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    pointer-events: none;
+    margin-top: 50vh;
+}
+
+.carousel-item {
+    --items: 10;
+    --width: clamp(150px, 30vw, 300px);
+    --height: clamp(200px, 40vw, 400px);
+    --x: calc(var(--active) * 800%);
+    --y: calc(var(--active) * 200%);
+    --rot: calc(var(--active) * 120deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+    overflow: hidden;
+    position: absolute;
+    z-index: var(--zIndex);
+    width: var(--width);
+    height: var(--height);
+    margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    user-select: none;
+    transform-origin: 0% 100%;
+    box-shadow: 0 10px 50px 10px rgba(0, 0, 0, .5);
+    background: black;
+    pointer-events: all;
+    transform: translate(var(--x), var(--y)) rotate(var(--rot));
+    transition: transform .8s cubic-bezier(0, 0.02, 0, 1);
+    .carousel-box {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+        opacity: var(--opacity);
+        font-family: 'Orelo-sw-db', serif;
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, .3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5));
+        }
+    }
+    .title {
+        position: absolute;
+        z-index: 1;
+        color: #fff;
+        bottom: 20px;
+        left: 20px;
+        transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+        font-size: clamp(20px, 3vw, 30px);
+        text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    }
+    .num {
+        position: absolute;
+        z-index: 1;
+        color: #fff;
+        top: 10px;
+        left: 20px;
+        transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+        font-size: clamp(20px, 10vw, 80px);
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+    }
+}
+
+.layout {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 90px;
+        width: 10px;
+        height: 100%;
+        border: 1px solid #fff;
+        border-top: none;
+        border-bottom: none;
+        opacity: .15;
+    }
+    .box {
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+        color: #fff;
+        transform-origin: 0% 10%;
+        transform: rotate(-90deg);
+        font-size: 9px;
+        line-height: 1.4;
+        text-transform: uppercase;
+        opacity: .4;
+    }
+}
+
+.cursor {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    --size: 40px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .2);
+    margin: calc(var(--size) * -0.5) 0 0 calc(var(--size) * -0.5);
+    transition: transform .85s cubic-bezier(0, 0.02, 0, 1);
+    display: none;
+    pointer-events: none;
+    @media (pointer: fine) {
+        display: block;
+    }
+}
+
+.cursor2 {
+    --size: 2px;
+    transition-duration: .7s;
+}
+
+
+/* Mobile responsiveness */
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        background: #34495e;
+    }
+    .content {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 60px;
+        margin-left: 20px;
+    }
+    .intro-heading {
+        font-size: 50px;
+        margin-left: 20px;
+    }
+    .intro-text {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    .button-container {
+        position: relative;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .btn-products,
+    .btn-services,
+    .btn-aboutus {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    .footer-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-logo-img {
+        width: 100px;
+    }
+    .footer-section,
+    .footer-links,
+    .footer-social {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+    .social-media-footer {
+        width: 100%;
+        justify-content: center;
+    }
+    .social-icon img {
+        width: 40px;
+    }
+    .logo-container {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .LOGO {
+        width: 150px;
+        margin-left: 0;
+    }
+    .logo-text {
+        font-size: 20px;
+    }
+}
+
+
+/* Smallest devices (portrait tablets and below) */
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 50px;
+    }
+    .intro-heading {
+        font-size: 40px;
+    }
+    .intro-text {
+        font-size: 16px;
+    }
+    .btn-products,
+    .btn-services,
+    .btn-aboutus {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    .footer-info {
+        padding: 20px;
+    }
+    .footer-logo-img {
+        width: 80px;
+    }
+    .social-icon img {
+        width: 30px;
+    }
+}
